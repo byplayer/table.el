@@ -7,16 +7,17 @@
 ;; Version:       1.5.55
 ;; Keywords:      wp, convenience
 ;; Author:        Takaaki Ota <Takaaki.Ota@am.sony.com>
-;;                Surendra Singhi <surendra@asu.edu> 
-;; Maintainer:    Surendra Singhi <surendra@asu.edu> 
+;;                Surendra Singhi <surendra@asu.edu>
+;; Maintainer:    Surendra Singhi <surendra@asu.edu>
 ;;                Takaaki Ota <Takaaki.Ota@am.sony.com>
+;;                Yukio Goto <byplayer100@gmail.com>
 ;; Created:       Sat Jul 08 2000 13:28:45 (PST)
 
 ;; Description:   create and edit WYSIWYG text based embedded tables
 ;; Compatibility: Emacs20.7, Emacs21.1, XEmacs21.1.9(some serious known issues)
 ;; URL:           http://table.sourceforge.net/
 
-(defconst table-version "1.5.55"
+(defconst table-version "1.6.0"
   "Table version number.
 The latest version is available from http://table.sourceforge.net/")
 
