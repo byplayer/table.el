@@ -1907,6 +1907,7 @@ Inside a table cell has a special keymap.
 					 (if (listp value) " or a list of positive integers" ""))))))
 		(if (null value) (funcall error-handler))
 		(mapcar (function (lambda (arg1)
+                        (print arg1)
 				    (if (or (not (integerp arg1))
 					    (< arg1 1))
 					(funcall error-handler))))
@@ -4270,7 +4271,7 @@ converts a table into plain text without frames.  It is a companion to
   "Table cell version of `self-insert-command'."
   (interactive "*")
   (let ((table-inhibit-advice t)
-	(char (table--unibyte-char-to-multibyte last-command-char)))
+	(char (table--unibyte-char-to-multibyte last-command-event)))
     (if (eq buffer-undo-list t) nil
       (if (not (eq last-command this-command))
 	  (setq table-cell-self-insert-command-count 0)
@@ -5180,7 +5181,7 @@ Exclude menu-bar from KEYMAP."
 	(cond
 	 ((char-table-p elt)
 	  (map-char-table
-	   (lambda (key value) (aset elt key (table--replace-binding1 value)))
+	   (lambda (key value) (if (consp key) (set-char-table-range elt key (table--replace-binding1 value)) (aset elt key (table--replace-binding1 value))))
 	   elt))
 	 ((vectorp elt)
 	  (let ((i 0)
@@ -6028,4 +6029,3 @@ It returns COLUMN unless STR contains some wide characters."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; table.el ends here
- 
